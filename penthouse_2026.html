@@ -80,6 +80,27 @@
   .hero-title { font-size: clamp(2.75rem, 7.5vw, 7rem); margin-bottom: 1.5rem; max-width: 1100px; }
   .hero-sub { font-size: 1.05rem; max-width: 540px; color: var(--ink-soft); line-height: 1.7; }
 
+  /* HERO video box */
+  .hero-text-band-flex { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; }
+  .hero-text-content { flex: 1 1 auto; min-width: 0; }
+  .hero-video-box { flex: 0 0 520px; width: 520px; }
+  .video-frame-label {
+    font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;
+  }
+  .video-frame-label::before { content: ''; width: 26px; height: 1px; background: var(--terracotta); }
+  .video-frame {
+    position: relative; padding: 14px; background: var(--bg-soft);
+    box-shadow: 0 25px 60px -25px rgba(31,42,51,0.35);
+  }
+  .frame-corner { position: absolute; width: 22px; height: 22px; border: 2px solid var(--terracotta); pointer-events: none; }
+  .frame-corner.tl { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+  .frame-corner.tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+  .frame-corner.bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
+  .frame-corner.br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+  .hero-video-inner { position: relative; width: 100%; padding-top: 56.25%; background: var(--ink); overflow: hidden; }
+  .hero-video-inner iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
   /* SECTIONS */
   section { padding: 7rem 3rem; }
   .container { max-width: 1400px; margin: 0 auto; }
@@ -213,6 +234,8 @@
     .lang-switcher { padding-left: 0; border-left: none; }
     section { padding: 5rem 1.5rem; }
     .hero-text-band { padding: 3rem 1.5rem 4rem; }
+    .hero-text-band-flex { flex-direction: column; align-items: flex-start; gap: 2rem; }
+    .hero-video-box { flex: 0 0 auto; width: 100%; max-width: 400px; }
     .pool-text-wrap { padding: 4rem 1.5rem 5rem; }
     .pool-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .intro-grid, .feature, .feature.reverse { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -252,12 +275,27 @@
   <div class="image-band">
     <img src="https://lh3.googleusercontent.com/d/1eq7c0Bu27fydJSAU_pVYfyfwZFFZ9Nt2=w2400" alt="Penthouse view">
   </div>
-  <div class="hero-text-band">
-    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Estepona · Andalusia</div>
-    <h1 class="display hero-title" data-i18n="hero.title">A penthouse <span class="italic">above</span> the Mediterranean.</h1>
-    <p class="hero-sub" data-i18n="hero.sub">Where Andalusia opens to the sea. Two terraces, an infinity pool, and a long view that reaches all the way to Gibraltar.</p>
+  <div class="hero-text-band hero-text-band-flex">
+    <div class="hero-text-content">
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Estepona · Andalusia</div>
+      <h1 class="display hero-title" data-i18n="hero.title">A penthouse <span class="italic">above</span> the Mediterranean.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Where Andalusia opens to the sea. Two terraces, an infinity pool, and a long view that reaches all the way to Gibraltar.</p>
+    </div>
+    <div class="hero-video-box">
+      <div class="video-frame-label" data-i18n="hero.videoLabel">In Motion</div>
+      <div class="video-frame">
+        <span class="frame-corner tl"></span>
+        <span class="frame-corner tr"></span>
+        <span class="frame-corner bl"></span>
+        <span class="frame-corner br"></span>
+        <div class="hero-video-inner">
+          <iframe src="https://player.vimeo.com/video/1207670558?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="FullSizeRender"></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <section class="intro" id="residence">
   <div class="container">
@@ -340,6 +378,7 @@
       <p data-i18n="gallery.intro">A residence designed around its view — every interior decision deferring to the sea, the sky, and the line where they meet.</p>
     </div>
     <div class="gallery-grid">
+      <figure><img src="https://lh3.googleusercontent.com/d/1VnVFPPEIKFNP3yHdM-vW9yVtRc3OCDyd=w1800" alt=""></figure>
       <figure><img src="https://lh3.googleusercontent.com/d/1-djkG6HpYLJWSYxgBTfu2_jdmOILfBT4=w1800" alt=""></figure>
       <figure><img src="https://lh3.googleusercontent.com/d/1OWwRgiZdqtOZftb3iA0bd9EQdfWfqsNA=w1800" alt=""></figure>
       <figure><img src="https://lh3.googleusercontent.com/d/1JynvcE9Hhd6DbXa3LnxJzk7AaUro9lId=w1800" alt=""></figure>
@@ -561,6 +600,7 @@
       'nav.location': 'Location',
       'nav.dining': 'Dining',
       'hero.eyebrow': 'Estepona · Andalusia',
+      'hero.videoLabel': 'In Motion',
       'hero.title': 'A penthouse <span class="italic">above</span> the Mediterranean.',
       'hero.sub': 'Where Andalusia opens to the sea. Two terraces, an infinity pool, and a long view that reaches all the way to Gibraltar.',
       'intro.label': 'The Residence',
@@ -635,6 +675,7 @@
       'nav.location': 'Situation',
       'nav.dining': 'À table',
       'hero.eyebrow': 'Estepona · Andalousie',
+      'hero.videoLabel': 'En mouvement',
       'hero.title': 'Un penthouse <span class="italic">au-dessus</span> de la Méditerranée.',
       'hero.sub': 'Là où l\'Andalousie s\'ouvre sur la mer. Deux terrasses, une piscine à débordement, et un long horizon qui porte jusqu\'à Gibraltar.',
       'intro.label': 'La résidence',
@@ -709,6 +750,7 @@
       'nav.location': 'Ubicación',
       'nav.dining': 'A la mesa',
       'hero.eyebrow': 'Estepona · Andalucía',
+      'hero.videoLabel': 'En movimiento',
       'hero.title': 'Un ático <span class="italic">sobre</span> el Mediterráneo.',
       'hero.sub': 'Donde Andalucía se abre al mar. Dos terrazas, una piscina infinita, y una vista larga que alcanza hasta Gibraltar.',
       'intro.label': 'La residencia',
@@ -783,6 +825,7 @@
       'nav.location': 'Lage',
       'nav.dining': 'Tafel',
       'hero.eyebrow': 'Estepona · Andalusien',
+      'hero.videoLabel': 'In Bewegung',
       'hero.title': 'Ein Penthouse <span class="italic">über</span> dem Mittelmeer.',
       'hero.sub': 'Wo sich Andalusien zum Meer öffnet. Zwei Terrassen, ein Infinity-Pool, und ein langer Blick, der bis nach Gibraltar reicht.',
       'intro.label': 'Die Residenz',
