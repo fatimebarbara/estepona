@@ -20,7 +20,7 @@
   .langnav button{font-family:inherit;font-size:.72rem;letter-spacing:.06em;font-weight:600;border:0;background:transparent;color:var(--ink-soft);padding:.32rem .58rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
   .langnav button:hover{color:var(--ink)}
   .langnav button.active{background:var(--sea);color:#fff}
-  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(20,30,32,.62),rgba(20,30,32,.10) 55%,rgba(20,30,32,.30)),url('https://lh3.googleusercontent.com/d/1eq7c0Bu27fydJSAU_pVYfyfwZFFZ9Nt2=w2400') center/cover no-repeat;color:#fff;padding:clamp(2rem,6vw,5rem)}
+  .hero{position:relative;min-height:70vh;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(20,30,32,.62),rgba(20,30,32,.10) 55%,rgba(20,30,32,.30)),url('https://lh3.googleusercontent.com/d/1OvO42pkIy5wyH75C2YnNjNLgnefNNDCu=w2400') center/cover no-repeat;color:#fff;padding:clamp(2rem,6vw,5rem)}
   .hero-inner{max-width:760px}
   .hero .eyebrow{color:#e9dcc4}
   .hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.02;margin:.5rem 0 1rem;font-weight:300}
@@ -85,8 +85,11 @@
   .rest h3{font-size:1.2rem;margin:.25rem 0 .4rem;font-weight:500}
   .rest p{font-size:.9rem;color:var(--ink-soft)}
   .band{height:74vh;min-height:520px;background-size:cover;background-position:center;margin:0}
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem;margin-top:1rem}
-  .gallery img{width:100%;height:380px;object-fit:cover;display:block;background:#fff;padding:10px 10px 28px;border-radius:4px;box-shadow:0 1px 2px rgba(43,42,38,.22),0 24px 48px -20px rgba(43,42,38,.55);transition:transform .3s}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1rem}
+  .gallery img{width:100%;height:250px;object-fit:cover;display:block;background:#fff;padding:8px 8px 22px;border-radius:4px;box-shadow:0 1px 2px rgba(43,42,38,.22),0 24px 48px -20px rgba(43,42,38,.55);transition:transform .3s}
+  @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .video-frame{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--sand-deep);box-shadow:0 1px 2px rgba(43,42,38,.22),0 24px 48px -20px rgba(43,42,38,.55);margin-top:1.5rem}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .gallery img:nth-child(odd){transform:rotate(-1deg)}
   .gallery img:nth-child(even){transform:rotate(1deg)}
   .gallery img:hover{transform:rotate(0) scale(1.02)}
@@ -95,7 +98,7 @@
   .closing p{color:var(--ink-soft);max-width:46ch;margin:0 auto}
   footer{text-align:center;padding:2.5rem 1rem;font-size:.82rem;background:var(--ink);color:#cfc8ba}
   footer a{color:#e9dcc4}
-  @media(max-width:560px){.hero{min-height:82vh}.card{padding:1.4rem}.band{height:60vh;min-height:380px}.gallery img{height:300px}.transnote{text-align:left}}
+  @media(max-width:560px){.hero{min-height:56vh}.card{padding:1.4rem}.band{height:60vh;min-height:380px}.gallery img{height:200px}.transnote{text-align:left}}
 </style>
 </head>
 <body>
@@ -124,6 +127,11 @@
       <img src="https://lh3.googleusercontent.com/d/1NBz6RZD-0hn3yMzQi10JGHWJbBHWjY1K=w1200" data-i18n-alt="alt_studio" alt="The studio corner" loading="lazy">
       <img src="https://lh3.googleusercontent.com/d/1JynvcE9Hhd6DbXa3LnxJzk7AaUro9lId=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
       <img src="https://lh3.googleusercontent.com/d/11KOceT1I8hRI46PcCVm78W9y0Nv5Te6n=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1VnVFPPEIKFNP3yHdM-vW9yVtRc3OCDyd=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/110Rs8Ux4ZgP9LabBk-Z0muIfpQnXuqES=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+    </div>
+    <div class="video-frame">
+      <iframe src="https://player.vimeo.com/video/1207670558?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="The penthouse" loading="lazy"></iframe>
     </div>
   </section>
 
