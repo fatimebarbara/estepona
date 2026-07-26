@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome · Penthouse Estepona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--sand:#f4efe7;--sand-deep:#eae2d4;--ink:#2b2a26;--ink-soft:#5c574d;--line:#d8cfbe;--sea:#3f6f78;--sea-deep:#2c5159;--card:#fffdf9;--shadow:0 18px 50px -28px rgba(43,42,38,.45)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Figtree',sans-serif;color:var(--ink);background:var(--sand);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.01em}
+  .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sea);font-weight:600}
+  a{color:inherit}
+  .transnote{background:var(--sand-deep);color:var(--ink-soft);font-size:.75rem;text-align:center;padding:.45rem 3.5rem .45rem .9rem}
+  .langnav{position:fixed;top:14px;right:14px;z-index:50;display:flex;gap:.2rem;background:rgba(255,253,249,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:.25rem;box-shadow:var(--shadow)}
+  .langnav button{font-family:inherit;font-size:.72rem;letter-spacing:.06em;font-weight:600;border:0;background:transparent;color:var(--ink-soft);padding:.32rem .58rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+  .langnav button:hover{color:var(--ink)}
+  .langnav button.active{background:var(--sea);color:#fff}
+  .hero{position:relative;min-height:70vh;display:flex;align-items:flex-end;background:linear-gradient(to top,rgba(20,30,32,.62),rgba(20,30,32,.10) 55%,rgba(20,30,32,.30)),url('https://lh3.googleusercontent.com/d/1OvO42pkIy5wyH75C2YnNjNLgnefNNDCu=w2400') center/cover no-repeat;color:#fff;padding:clamp(2rem,6vw,5rem)}
+  .hero-inner{max-width:760px}
+  .hero .eyebrow{color:#e9dcc4}
+  .hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.02;margin:.5rem 0 1rem;font-weight:300}
+  .hero p{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:48ch;color:#f3ece0}
+  .wrap{max-width:1080px;margin:0 auto;padding:clamp(3rem,7vw,6rem) clamp(1.25rem,5vw,3rem)}
+  section{scroll-margin-top:2rem}
+  .lead{font-size:clamp(1.15rem,2vw,1.45rem);max-width:60ch;color:var(--ink-soft);font-family:'Fraunces',serif;font-weight:300;line-height:1.5}
+  .section-head{margin-bottom:2.5rem}
+  .section-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-top:.6rem;font-weight:300}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.25rem;margin-top:1rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.75rem;box-shadow:var(--shadow);overflow:hidden}
+  .card h3{font-size:1.25rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem}
+  .card .ico{font-size:1.1rem}
+  .card p,.card .val{color:var(--ink-soft);font-size:.98rem}
+  .card .big{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--ink);line-height:1.3;margin:.2rem 0}
+  .card .small{font-size:.82rem;color:var(--ink-soft);margin-top:.7rem}
+  .maplink{display:inline-block;font-size:.82rem;color:var(--sea);font-weight:600;margin-top:.25rem}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;background:var(--sand-deep);padding:.15rem .5rem;border-radius:6px;font-size:.92rem;color:var(--ink);display:inline-block;margin-top:.15rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;background:var(--sea);color:#fff;text-decoration:none;font-weight:600;padding:.7rem 1.2rem;border-radius:999px;font-size:.92rem;transition:background .2s,transform .2s}
+  .btn:hover{background:var(--sea-deep);transform:translateY(-2px)}
+  .acc{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem}
+  details.acc-item{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  details.acc-item summary{display:flex;align-items:center;gap:.75rem;cursor:pointer;list-style:none;padding:1.1rem 1.3rem;font-family:'Fraunces',serif;font-size:1.15rem;font-weight:500;transition:background .2s}
+  details.acc-item summary:hover{background:var(--sand)}
+  details.acc-item summary::-webkit-details-marker{display:none}
+  details.acc-item summary .ico{font-size:1.15rem}
+  details.acc-item summary .chev{margin-left:auto;color:var(--sea);font-size:.9rem;transition:transform .25s}
+  details[open].acc-item summary .chev{transform:rotate(180deg)}
+  .acc-body{padding:.2rem 1.3rem 1.5rem;color:var(--ink-soft);font-size:.96rem}
+  .acc-body p{margin-bottom:.65rem;max-width:60ch}
+  .acc-body p:last-child{margin-bottom:0}
+  .acc-row{display:flex;gap:1.5rem;align-items:flex-start}
+  .acc-row + .acc-row{margin-top:1.3rem}
+  .acc-text{flex:1;min-width:0}
+  .frame{flex:0 0 210px;background:#fff;padding:8px 8px 24px;border-radius:4px;box-shadow:0 1px 2px rgba(43,42,38,.22),0 18px 34px -16px rgba(43,42,38,.55);transform:rotate(-1.5deg);transition:transform .25s}
+  .frame img{width:100%;height:150px;object-fit:cover;display:block;border-radius:2px;background:var(--sand-deep)}
+  .acc-row:nth-child(even) .frame,details.acc-item:nth-of-type(even) .frame{transform:rotate(1.5deg)}
+  .frame:hover{transform:rotate(0) scale(1.04)}
+  @media(max-width:640px){.acc-row{flex-direction:column}.frame{flex:none;width:min(240px,100%)}}
+  .plants{display:flex;gap:.9rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sea);border-radius:14px;padding:1.2rem 1.4rem;margin-top:1.5rem;box-shadow:var(--shadow)}
+  .plants .ico{font-size:1.3rem;line-height:1.4}
+  .plants p{color:var(--ink-soft);font-size:.96rem;max-width:70ch}
+  .rules{background:var(--sea-deep);color:#f3ece0;border-radius:22px;padding:clamp(2rem,5vw,3.5rem);margin-top:1rem;box-shadow:var(--shadow)}
+  .rules .eyebrow{color:#bcd4d4}
+  .rules h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;margin:.5rem 0 1.75rem}
+  .rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+  .rule{display:flex;gap:.9rem;align-items:flex-start}
+  .rule .ico{font-size:1.3rem;line-height:1.4}
+  .rule h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.1rem;color:#fff;margin-bottom:.2rem}
+  .rule p{font-size:.94rem;color:#d8e3e2}
+  .dist{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:1rem}
+  .dist-item{border-top:2px solid var(--line);padding-top:1rem}
+  .dist-item .place{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:500}
+  .dist-item .time{color:var(--sea);font-weight:600;font-size:.95rem;margin-top:.2rem}
+  .dist-item p{font-size:.9rem;color:var(--ink-soft);margin-top:.4rem}
+  .eat{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-top:1rem}
+  .rest{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .25s}
+  .rest:hover{transform:translateY(-4px)}
+  .rest img{width:calc(100% - 20px);height:190px;object-fit:cover;display:block;margin:10px 10px 0;border-radius:8px;background:var(--sand-deep);box-shadow:0 10px 22px -12px rgba(43,42,38,.5)}
+  .rest-body{padding:1.1rem 1.2rem 1.4rem}
+  .rest .tag{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);font-weight:600}
+  .rest h3{font-size:1.2rem;margin:.25rem 0 .4rem;font-weight:500}
+  .rest p{font-size:.9rem;color:var(--ink-soft)}
+  .band{height:74vh;min-height:520px;background-size:cover;background-position:center;margin:0}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1rem}
+  .gallery img{width:100%;height:250px;object-fit:cover;display:block;background:#fff;padding:8px 8px 22px;border-radius:4px;box-shadow:0 1px 2px rgba(43,42,38,.22),0 24px 48px -20px rgba(43,42,38,.55);transition:transform .3s}
+  @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .gallery img:nth-child(odd){transform:rotate(-1deg)}
+  .gallery img:nth-child(even){transform:rotate(1deg)}
+  .gallery img:hover{transform:rotate(0) scale(1.02)}
+  .closing{text-align:center;padding:clamp(3.5rem,8vw,7rem) 1.5rem;background:var(--sand-deep)}
+  .closing h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:300;max-width:16ch;margin:0 auto 1rem}
+  .closing p{color:var(--ink-soft);max-width:46ch;margin:0 auto}
+  footer{text-align:center;padding:2.5rem 1rem;font-size:.82rem;background:var(--ink);color:#cfc8ba}
+  footer a{color:#e9dcc4}
+  @media(max-width:560px){.hero{min-height:56vh}.card{padding:1.4rem}.band{height:60vh;min-height:380px}.gallery img{height:200px}.transnote{text-align:left}}
+</style>
+</head>
+<body>
+
+  <div class="transnote" data-i18n="transnote">The Spanish, French and German versions are automatic translations.</div>
+
+  <nav class="langnav" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="de">DE</button></nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow" data-i18n="hero_eyebrow">Estepona · Andalusia</span>
+      <h1 data-i18n="hero_h1">Welcome.</h1>
+      <p data-i18n="hero_p">We're so glad you're here. Pour something cold and let the sea take it from there. Everything you'll need for your stay is below.</p>
+    </div>
+  </header>
+
+  <section class="wrap" style="padding-bottom:1rem">
+    <p class="lead" data-i18n="lead">A two-bedroom penthouse above the New Golden Mile, with two wide terraces, an infinity pool, and a view that reaches all the way to the Rock of Gibraltar. Make yourself at home — this short guide has the practical details to settle you in.</p>
+  </section>
+
+  <section class="wrap" style="padding-top:1.5rem;padding-bottom:0">
+    <div class="gallery">
+      <img src="https://lh3.googleusercontent.com/d/1-djkG6HpYLJWSYxgBTfu2_jdmOILfBT4=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1OWwRgiZdqtOZftb3iA0bd9EQdfWfqsNA=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1EmXAMqCdNfUUduBqzR_OQJQOM_DamRRx=w1200" data-i18n-alt="alt_terrace" alt="The terrace" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1NBz6RZD-0hn3yMzQi10JGHWJbBHWjY1K=w1200" data-i18n-alt="alt_studio" alt="The studio corner" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1JynvcE9Hhd6DbXa3LnxJzk7AaUro9lId=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/11KOceT1I8hRI46PcCVm78W9y0Nv5Te6n=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1VnVFPPEIKFNP3yHdM-vW9yVtRc3OCDyd=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/110Rs8Ux4ZgP9LabBk-Z0muIfpQnXuqES=w1200" data-i18n-alt="alt_pent" alt="The penthouse" loading="lazy">
+    </div>
+  </section>
+
+  <section class="wrap" id="essentials" style="padding-top:1.5rem">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ess_eyebrow">The Essentials</span>
+      <h2 data-i18n="ess_h2">Everything you need to arrive</h2>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <h3><span class="ico">📍</span> <span data-i18n="addr_title">Address</span></h3>
+        <p class="big">Oceana Views Urbanization 
+        <p class="big">Camino Loma de Retamar 39, 6/2B</p>
+        <p class="val" data-i18n="addr_unit">Stairwell (escalera) 6 · Apartment 2B</p>
+        <p class="val" data-i18n="addr_line2">Estepona, Málaga · Spain</p>
+        <p class="small" data-i18n="addr_note">Google Maps sometimes drops the pin a little further down the street — this one is exact:</p>
+        <a class="maplink" href="https://maps.app.goo.gl/UnV5f2drn2W5XEeL9" data-i18n="addr_map">Exact location on Google Maps →</a>
+      </div>
+
+      <div class="card">
+        <h3><span class="ico">💬</span> <span data-i18n="con_title">Getting in touch</span></h3>
+        <p class="val" data-i18n="con_before">Before you arrive — message us on WhatsApp a few days ahead with your arrival time, so we can welcome you smoothly.</p>
+        <p class="val" style="margin-top:.6rem" data-i18n="con_during">During your stay — anything you need, anything that isn't working, it's the same number. We're happy to help.</p>
+        <a class="btn" href="https://wa.me/32491372715">WhatsApp · +32491372715</a>
+      </div>
+
+      <div class="card">
+        <h3><span class="ico">🔑</span> <span data-i18n="keys_title">Getting in</span></h3>
+        <p class="val" data-i18n="keys_text">Please see the practical information below — keys, codes, the garage and everything else are explained there.</p>
+        <a class="btn" href="#practical" data-i18n="keys_btn">Practical information</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="wrap" id="practical" style="padding-top:1rem">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="prac_eyebrow">The Practicalities</span>
+      <h2 data-i18n="prac_h2">How everything works</h2>
+    </div>
+    <div class="acc">
+
+      <details class="acc-item">
+        <summary><span class="ico">🔑</span><span data-i18n="p5_h">Check-in, keys &amp; the garage</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1OyIOeiwM1hnNfMl5u9oW1YqTAyBqgHVC=w1200" data-i18n-alt="alt_lockbox" alt="The lockboxes behind the reception" loading="lazy"></span>
+            <div class="acc-text">
+              <p data-i18n="p5_1">For a self check-in, the lockboxes are behind the reception, under the Oceana label — we'll send you the code on the day of your arrival. If we're welcoming you in person, we'll simply hand you the keys.</p>
+              <p data-i18n-html="p5_2">The plastic key opens the garage. Past the Oceana Views reception, the entrance slopes down — just before the garage door, there's a slot on the left for the garage key. <strong>Please park only in space 14</strong> — all the other spaces are privately owned by neighbours.</p>
+              <p data-i18n="p5_3">The lift is right next to the parking space, in stairwell (escalera) 6, and takes you straight up to the apartment — second floor, 2B. Arriving on foot? The ordinary key opens both the street door and the building entrance.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">🧳</span><span data-i18n="p7_h">Check-out</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <p data-i18n="p7_p">On the day of check-out, leave the keys inside the flat and simply close the door behind you — and don't forget to press the little arrow on the keypad, so the door locks.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">🅿️</span><span data-i18n="p6_h">The parking barrier</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <p data-i18n="p6_p">If the barrier is closed, the little key on the keychain opens it.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">🔢</span><span data-i18n="p2_h">The door code</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1A_spH0MggA-0L_SwJTlPJc_vIxNQDgKU=w1200" data-i18n-alt="alt_keypad" alt="The keypad on the apartment door" loading="lazy"></span>
+            <div class="acc-text"><p data-i18n="p2_1">We'll send your code on the day of arrival. Type it on the keypad and the door opens. When you leave, press the arrow key — that's what locks the door behind you.</p></div>
+          </div>
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1yTVIqhaD74EtF1flXo9c7Ih05F-ho_wg=w1200" data-i18n-alt="alt_lockinside" alt="The lock from inside" loading="lazy"></span>
+            <div class="acc-text"><p data-i18n="p2_2">From inside, press the lower part of the lock to secure the door.</p></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">📶</span><span data-i18n="wifi_title">Wi-Fi</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <p data-i18n="wifi_net">Network</p>
+          <span class="mono">wifi_olivenet-0D12AA</span>
+          <p style="margin-top:.6rem" data-i18n="wifi_pass">Password</p>
+          <span class="mono">F83ZNTee</span>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">❄️</span><span data-i18n="p4_h">Air conditioning</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1kp3poJGPfjfK1xemzg5eV9j-FFyA-kEy=w1200" data-i18n-alt="alt_airco" alt="The air conditioning unit" loading="lazy"></span>
+            <div class="acc-text"><p data-i18n="p4_p">One small button on top is all it takes — press it and it starts. No need to change any of the other settings.</p></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">☀️</span><span data-i18n="p3_h">The terrace shade</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1kiYnOsZT_y2iiGJtMxAsSSutynnw1vG7=w1200" data-i18n-alt="alt_remote" alt="The remote for the terrace shade" loading="lazy"></span>
+            <div class="acc-text"><p data-i18n="p3_p">The remote for the shade lives by the terrace door. Please keep it there, so it's always easy to find.</p></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary><span class="ico">💧</span><span data-i18n="p1_h">Drinking water</span><span class="chev">▾</span></summary>
+        <div class="acc-body">
+          <div class="acc-row">
+            <span class="frame"><img src="https://lh3.googleusercontent.com/d/1e1NRSRht2_nmMqVI0whvU4gqpdJTLvY4=w1200" data-i18n-alt="alt_tap" alt="The tap with the water filter" loading="lazy"></span>
+            <div class="acc-text"><p data-i18n="p1_p">The kitchen tap has a filter: turned to blue, it pours clear drinking water. Please use the blue position only for drinking — for everything else, the two ordinary tap positions are the ones to use.</p></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="plants">
+      <span class="ico">🪴</span>
+      <p data-i18n="plants_p">One small favour: we really love our plants. If you notice the automatic watering isn't working — or not quite doing its job — please drop us a message. Thank you!</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="rules" style="padding-top:1rem">
+    <div class="rules">
+      <span class="eyebrow" data-i18n="rules_eyebrow">A Few Gentle Requests</span>
+      <h2 data-i18n="rules_h2">So everyone feels at home</h2>
+      <div class="rules-grid">
+        <div class="rule"><span class="ico">🌙</span><div><h4 data-i18n="r1_h">Quiet hours · 22:00 – 10:00</h4><p data-i18n="r1_p">The building is a home to others too. Between 22:00 and 10:00, we kindly ask that you keep things peaceful so neighbours can rest.</p></div></div>
+        <div class="rule"><span class="ico">🤍</span><div><h4 data-i18n="r2_h">Mindful of neighbours</h4><p data-i18n="r2_p">This is a close, residential community. A little awareness of noise on the terraces and in shared spaces goes a long way.</p></div></div>
+        <div class="rule"><span class="ico">🚫</span><div><h4 data-i18n="r3_h">No parties or events</h4><p data-i18n="r3_p">The penthouse is for those named on the booking. Parties and gatherings beyond your group are not permitted.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" style="background-image:linear-gradient(rgba(20,30,32,.15),rgba(20,30,32,.15)),url('https://lh3.googleusercontent.com/d/1WPKx72MZP70IqMvY5-zHhf8WSRTDMj85=w2400')"></div>
+
+  <section class="wrap" id="around">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="around_eyebrow">Getting Around</span>
+      <h2 data-i18n="around_h2">Minutes from everything that matters</h2>
+    </div>
+    <div class="dist">
+      <div class="dist-item">
+        <div class="place">Estepona</div>
+        <div class="time">10 min · 8 km</div>
+        <p data-i18n="dist_p_0">The old town — flower-draped lanes, a working fishing port, the marina and the Orchidarium.</p>
+      </div>
+      <div class="dist-item">
+        <div class="place">Marbella</div>
+        <div class="time">25 min · 25 km</div>
+        <p data-i18n="dist_p_1">Puerto Banús, the Golden Mile and the old town — the full theatre of the coast.</p>
+      </div>
+      <div class="dist-item">
+        <div class="place">Gibraltar</div>
+        <div class="time">45 min · 50 km</div>
+        <p data-i18n="dist_p_2">The Rock — visible from the terrace, and an easy drive down the coast.</p>
+      </div>
+      <div class="dist-item">
+        <div class="place" data-i18n="malaga">Málaga Airport</div>
+        <div class="time">50 min · 75 km</div>
+        <p data-i18n="dist_p_3">Direct connections across Europe. The toll motorway keeps the run straightforward.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="dining" style="padding-top:1rem">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="dining_eyebrow">Where We Eat</span>
+      <h2 data-i18n="dining_h2">A short list worth the drive</h2>
+    </div>
+    <div class="eat">
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1OfohUl6pqpMpyHVqJJTqhXkREA3CS40R=w1200" alt="Mar de Sazzon" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_0">La Laguna · Restaurant</span>
+          <h3>Mar de Sazzon</h3>
+          <p data-i18n="rest_desc_0">Refined Mediterranean cooking, sea views, fish from the espeto grill and Saturday flamenco on the sand.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1GJUFEXFi1gdliAzGG6hUozrj_64nNSgk=w1200" alt="Sublim" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_1">La Laguna · Beach Club</span>
+          <h3>Sublim</h3>
+          <p data-i18n="rest_desc_1">Infinity pool, Balinese beds, a refined kitchen and DJ sets that build into the evening.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/19k1Pnz_N0DQtu-zuN2TtYD3i4RBhe_VY=w1200" alt="La Bulla" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_2">Estepona · Gastro Bar</span>
+          <h3>La Bulla</h3>
+          <p data-i18n="rest_desc_2">Estepona's cult tapas counter — small plates, big wines. Book a week ahead.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/16sH2VDtX1gJO3BcsWud-XqwvM3vQ6wJA=w1200" alt="Sonora Beach" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_3">Estepona · Beach Club</span>
+          <h3>Sonora Beach</h3>
+          <p data-i18n="rest_desc_3">Beachfront, sand-coloured umbrellas, ceviche and rosé. A long lunch that earns the afternoon.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1KwA1kULPZK6lmgmhXzvErD_HZ3YzUSjo=w1200" alt="Mamzel" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_4">Marbella · Dinner Club</span>
+          <h3>Mamzel</h3>
+          <p data-i18n="rest_desc_4">Marbella's most theatrical evening — Mediterranean kitchen and live performance. Dress for it.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1IAiIf_XEsEUI8pg9JhpPunuDISCKRq4P=w1200" alt="Boho Club" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_5">Golden Mile · Restaurant</span>
+          <h3>Boho Club</h3>
+          <p data-i18n="rest_desc_5">A boutique garden restaurant — refined kitchen, hushed lighting. An evergreen choice.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/14DAq_kpPGYrtODbEkB8TNeIVc4njcLLu=w1200" alt="Playa Padre" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_6">Chiringuito</span>
+          <h3>Playa Padre</h3>
+          <p data-i18n="rest_desc_6">Toes in the sand, grilled fish off the boats, ice-cold albariño. The classic Andalusian afternoon.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1GwqeEO15Ax1QAsJpsqF8qND038xhpNNf=w1200" alt="El Ancla" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_7">Beach Club</span>
+          <h3>El Ancla</h3>
+          <p data-i18n="rest_desc_7">All-day on the sand — coffees, long lunches, sunset cocktails. Familiar and lovely.</p>
+        </div>
+      </div>
+      <div class="rest">
+        <img src="https://lh3.googleusercontent.com/d/1v-KTB1xRsdro0E7lkQJGgmQoXhJpVhy5=w1200" alt="Sylt Chapas" loading="lazy">
+        <div class="rest-body">
+          <span class="tag" data-i18n="rest_tag_8">Marbella · Beach Restaurant</span>
+          <h3>Sylt Chapas</h3>
+          <p data-i18n="rest_desc_8">The Marbella outpost of the German island favourite — crisp service, perfect fish, sea-facing tables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <span class="eyebrow" data-i18n="closing_eyebrow">Enjoy every hour</span>
+    <h2 data-i18n="closing_h2">A horizon you'll remember.</h2>
+    <p data-i18n="closing_p">Thank you for choosing our home. We hope you leave a lot more rested than you arrived.</p>
+  </section>
+
+  <footer data-i18n-html="footer">Need anything? WhatsApp <a href="https://wa.me/32491372715">+32491372715</a> · Penthouse · Estepona, Andalusia</footer>
+
+<script>
+  const I18N = {"en": {"title": "Welcome · Penthouse Estepona", "transnote": "The Spanish, French and German versions are automatic translations.", "hero_eyebrow": "Estepona · Andalusia", "hero_h1": "Welcome.", "hero_p": "We're so glad you're here. Pour something cold and let the sea take it from there. Everything you'll need for your stay is below.", "lead": "A two-bedroom penthouse above the New Golden Mile, with two wide terraces, an infinity pool, and a view that reaches all the way to the Rock of Gibraltar. Make yourself at home — this short guide has the practical details to settle you in.", "alt_pent": "The penthouse", "alt_terrace": "The terrace", "alt_studio": "The studio corner", "ess_eyebrow": "The Essentials", "ess_h2": "Everything you need to arrive", "addr_title": "Address", "addr_line2": "Estepona, Málaga · Spain", "addr_note": "Google Maps sometimes drops the pin a little further down the street — this one is exact:", "addr_map": "Exact location on Google Maps →", "keys_title": "Getting in", "keys_text": "Please see the practical information below — keys, codes, the garage and everything else are explained there.", "keys_btn": "Practical information", "wifi_title": "Wi-Fi", "wifi_net": "Network", "wifi_pass": "Password", "prac_eyebrow": "The Practicalities", "prac_h2": "How everything works", "p5_h": "Check-in, keys & the garage", "p5_1": "For a self check-in, the lockboxes are behind the reception, under the Oceana label — we'll send you the code on the day of your arrival. If we're welcoming you in person, we'll simply hand you the keys.", "p5_2": "The plastic key opens the garage. Past the Oceana Views reception, the entrance slopes down — just before the garage door, there's a slot on the left for the garage key. <strong>Please park only in space 14</strong> — all the other spaces are privately owned by neighbours.", "p5_3": "The lift is right next to the parking space, in stairwell (escalera) 6, and takes you straight up to the apartment — second floor, 2B. Arriving on foot? The ordinary key opens both the street door and the building entrance.", "p6_h": "The parking barrier", "p6_p": "If the barrier is closed, the little key on the keychain opens it.", "p2_h": "The door code", "p2_1": "We'll send your code on the day of arrival. Type it on the keypad and the door opens. When you leave, press the arrow key — that's what locks the door behind you.", "p2_2": "From inside, press the lower part of the lock to secure the door.", "p4_h": "Air conditioning", "p4_p": "One small button on top is all it takes — press it and it starts. No need to change any of the other settings.", "p3_h": "The terrace shade", "p3_p": "The remote for the shade lives by the terrace door. Please keep it there, so it's always easy to find.", "p1_h": "Drinking water", "p1_p": "The kitchen tap has a filter: turned to blue, it pours clear drinking water. Please use the blue position only for drinking — for everything else, the two ordinary tap positions are the ones to use.", "plants_p": "One small favour: we really love our plants. If you notice the automatic watering isn't working — or not quite doing its job — please drop us a message. Thank you!", "alt_lockbox": "The lockboxes behind the reception", "alt_keypad": "The keypad on the apartment door", "alt_lockinside": "The lock from inside", "alt_airco": "The air conditioning unit", "alt_remote": "The remote for the terrace shade", "alt_tap": "The tap with the water filter", "rules_eyebrow": "A Few Gentle Requests", "rules_h2": "So everyone feels at home", "r1_h": "Quiet hours · 22:00 – 10:00", "r1_p": "The building is a home to others too. Between 22:00 and 10:00, we kindly ask that you keep things peaceful so neighbours can rest.", "r2_h": "Mindful of neighbours", "r2_p": "This is a close, residential community. A little awareness of noise on the terraces and in shared spaces goes a long way.", "r3_h": "No parties or events", "r3_p": "The penthouse is for those named on the booking. Parties and gatherings beyond your group are not permitted.", "around_eyebrow": "Getting Around", "around_h2": "Minutes from everything that matters", "malaga": "Málaga Airport", "dist_p_0": "The old town — flower-draped lanes, a working fishing port, the marina and the Orchidarium.", "dist_p_1": "Puerto Banús, the Golden Mile and the old town — the full theatre of the coast.", "dist_p_2": "The Rock — visible from the terrace, and an easy drive down the coast.", "dist_p_3": "Direct connections across Europe. The toll motorway keeps the run straightforward.", "dining_eyebrow": "Where We Eat", "dining_h2": "A short list worth the drive", "rest_tag_0": "La Laguna · Restaurant", "rest_tag_1": "La Laguna · Beach Club", "rest_tag_2": "Estepona · Gastro Bar", "rest_tag_3": "Estepona · Beach Club", "rest_tag_4": "Marbella · Dinner Club", "rest_tag_5": "Golden Mile · Restaurant", "rest_tag_6": "Chiringuito", "rest_tag_7": "Beach Club", "rest_tag_8": "Marbella · Beach Restaurant", "rest_desc_0": "Refined Mediterranean cooking, sea views, fish from the espeto grill and Saturday flamenco on the sand.", "rest_desc_1": "Infinity pool, Balinese beds, a refined kitchen and DJ sets that build into the evening.", "rest_desc_2": "Estepona's cult tapas counter — small plates, big wines. Book a week ahead.", "rest_desc_3": "Beachfront, sand-coloured umbrellas, ceviche and rosé. A long lunch that earns the afternoon.", "rest_desc_4": "Marbella's most theatrical evening — Mediterranean kitchen and live performance. Dress for it.", "rest_desc_5": "A boutique garden restaurant — refined kitchen, hushed lighting. An evergreen choice.", "rest_desc_6": "Toes in the sand, grilled fish off the boats, ice-cold albariño. The classic Andalusian afternoon.", "rest_desc_7": "All-day on the sand — coffees, long lunches, sunset cocktails. Familiar and lovely.", "rest_desc_8": "The Marbella outpost of the German island favourite — crisp service, perfect fish, sea-facing tables.", "closing_eyebrow": "Enjoy every hour", "closing_h2": "A horizon you'll remember.", "closing_p": "Thank you for choosing our home. We hope you leave a lot more rested than you arrived.", "footer": "Need anything? WhatsApp <a href=\"https://wa.me/32491372715\">+32491372715</a> · Penthouse · Estepona, Andalusia", "addr_unit": "Stairwell (escalera) 6 · Apartment 2B", "con_title": "Getting in touch", "con_before": "Before you arrive — message us on WhatsApp a few days ahead with your arrival time, so we can welcome you smoothly.", "con_during": "During your stay — anything you need, anything that isn't working, it's the same number. We're happy to help.", "p7_h": "Check-out", "p7_p": "On the day of check-out, leave the keys inside the flat and simply close the door behind you — and don't forget to press the little arrow on the keypad, so the door locks."}, "es": {"title": "Bienvenidos · Ático Estepona", "transnote": "Las versiones en español, francés y alemán son traducciones automáticas.", "hero_eyebrow": "Estepona · Andalucía", "hero_h1": "Bienvenidos.", "hero_p": "Nos alegra mucho teneros aquí. Servíos algo fresco y dejad que el mar haga el resto. Aquí abajo encontraréis todo lo necesario para vuestra estancia.", "lead": "Un ático de dos dormitorios sobre la Nueva Milla de Oro, con dos amplias terrazas, una piscina infinita y una vista que llega hasta el Peñón de Gibraltar. Sentíos como en casa: esta breve guía reúne los detalles prácticos para vuestra llegada.", "alt_pent": "El ático", "alt_terrace": "La terraza", "alt_studio": "El rincón de estudio", "ess_eyebrow": "Lo Esencial", "ess_h2": "Todo lo que necesitáis para llegar", "addr_title": "Dirección", "addr_line2": "Estepona, Málaga · España", "addr_note": "A veces Google Maps sitúa la dirección algo más abajo en la calle — este enlace es exacto:", "addr_map": "Ubicación exacta en Google Maps →", "keys_title": "Cómo entrar", "keys_text": "Consultad la información práctica más abajo: allí encontraréis las llaves, los códigos, el garaje y todo lo demás.", "keys_btn": "Información práctica", "wifi_title": "Wi-Fi", "wifi_net": "Red", "wifi_pass": "Contraseña", "prac_eyebrow": "Lo Práctico", "prac_h2": "Cómo funciona todo", "p5_h": "Check-in, llaves y garaje", "p5_1": "Si el check-in es autónomo, las cajas de seguridad están detrás de la recepción, bajo el rótulo Oceana; os enviaremos el código el día de vuestra llegada. Si os recibimos en persona, os entregaremos las llaves directamente.", "p5_2": "La llave de plástico abre el garaje. Pasada la recepción de Oceana Views, la entrada desciende; justo antes de la puerta del garaje hay una ranura a la izquierda para la llave. <strong>Aparcad únicamente en la plaza 14</strong>: el resto de plazas son propiedad privada de los vecinos.", "p5_3": "El ascensor está junto a la plaza de aparcamiento, en la escalera 6, y sube directamente al apartamento: segunda planta, 2B. ¿Llegáis a pie? La llave normal abre tanto la puerta de la calle como la entrada del edificio.", "p6_h": "La barrera del aparcamiento", "p6_p": "Si la barrera está cerrada, la llavecita del llavero la abre.", "p2_h": "El código de la puerta", "p2_1": "Os enviaremos el código el día de la llegada. Tecleadlo en el panel y la puerta se abre. Al salir, pulsad la tecla de la flecha: es la que bloquea la puerta.", "p2_2": "Desde dentro, presionad la parte inferior de la cerradura para cerrar la puerta.", "p4_h": "Aire acondicionado", "p4_p": "Basta con el pequeño botón de la parte superior: pulsadlo y se pone en marcha. No hace falta tocar el resto de ajustes.", "p3_h": "El toldo de la terraza", "p3_p": "El mando del toldo está junto a la puerta de la terraza. Por favor, dejadlo siempre allí para que sea fácil de encontrar.", "p1_h": "Agua potable", "p1_p": "El grifo de la cocina tiene un filtro: girado hacia el azul, sale agua filtrada para beber. Usad la posición azul solo para beber; para todo lo demás, las dos posiciones normales del grifo.", "plants_p": "Un pequeño favor: queremos mucho a nuestras plantas. Si notáis que el riego automático no funciona —o no funciona del todo bien— escribidnos un mensaje. ¡Gracias!", "alt_lockbox": "Las cajas de seguridad tras la recepción", "alt_keypad": "El teclado de la puerta del apartamento", "alt_lockinside": "La cerradura por dentro", "alt_airco": "El aire acondicionado", "alt_remote": "El mando del toldo", "alt_tap": "El grifo con filtro", "rules_eyebrow": "Unas Peticiones Amables", "rules_h2": "Para que todos se sientan como en casa", "r1_h": "Horas de silencio · 22:00 – 10:00", "r1_p": "El edificio también es el hogar de otras personas. Entre las 22:00 y las 10:00, os pedimos amablemente que mantengáis la tranquilidad para que los vecinos puedan descansar.", "r2_h": "Respeto por los vecinos", "r2_p": "Esta es una comunidad residencial y cercana. Un poco de atención al ruido en las terrazas y en las zonas comunes marca la diferencia.", "r3_h": "No se permiten fiestas ni eventos", "r3_p": "El ático es para las personas indicadas en la reserva. No se permiten fiestas ni reuniones que excedan vuestro grupo.", "around_eyebrow": "Los Alrededores", "around_h2": "A pocos minutos de todo lo que importa", "malaga": "Aeropuerto de Málaga", "dist_p_0": "El casco antiguo: calles llenas de flores, un puerto pesquero en activo, la marina y el Orquidario.", "dist_p_1": "Puerto Banús, la Milla de Oro y el casco antiguo: todo el espectáculo de la costa.", "dist_p_2": "El Peñón, visible desde la terraza y a un cómodo trayecto por la costa.", "dist_p_3": "Conexiones directas con toda Europa. La autopista de peaje hace el trayecto sencillo.", "dining_eyebrow": "Dónde Comemos", "dining_h2": "Una breve lista que merece el trayecto", "rest_tag_0": "La Laguna · Restaurante", "rest_tag_1": "La Laguna · Beach Club", "rest_tag_2": "Estepona · Gastrobar", "rest_tag_3": "Estepona · Beach Club", "rest_tag_4": "Marbella · Dinner Club", "rest_tag_5": "Milla de Oro · Restaurante", "rest_tag_6": "Chiringuito", "rest_tag_7": "Beach Club", "rest_tag_8": "Marbella · Restaurante de playa", "rest_desc_0": "Cocina mediterránea refinada, vistas al mar, pescado al espeto y flamenco los sábados sobre la arena.", "rest_desc_1": "Piscina infinita, camas balinesas, una cocina cuidada y sesiones de DJ que crecen al caer la tarde.", "rest_desc_2": "La barra de tapas de culto de Estepona: platos pequeños, grandes vinos. Reservad con una semana de antelación.", "rest_desc_3": "Frente al mar, sombrillas color arena, ceviche y rosado. Un almuerzo largo que justifica la tarde.", "rest_desc_4": "La velada más teatral de Marbella: cocina mediterránea y espectáculo en directo. Vestíos para la ocasión.", "rest_desc_5": "Un restaurante boutique con jardín: cocina refinada y luz tenue. Una elección siempre acertada.", "rest_desc_6": "Los pies en la arena, pescado a la brasa recién traído y albariño bien frío. La clásica tarde andaluza.", "rest_desc_7": "Todo el día sobre la arena: cafés, almuerzos largos y cócteles al atardecer. Familiar y encantador.", "rest_desc_8": "La sucursal en Marbella del célebre local de la isla alemana: servicio impecable, pescado perfecto y mesas frente al mar.", "closing_eyebrow": "Disfrutad de cada hora", "closing_h2": "Un horizonte que recordaréis.", "closing_p": "Gracias por elegir nuestra casa. Esperamos que os marchéis mucho más descansados de como llegasteis.", "footer": "¿Necesitáis algo? WhatsApp <a href=\"https://wa.me/32491372715\">+32491372715</a> · Ático · Estepona, Andalucía", "addr_unit": "Escalera 6 · Apartamento 2B", "con_title": "Cómo contactarnos", "con_before": "Antes de llegar — escribidnos por WhatsApp unos días antes con vuestra hora de llegada, para poder recibiros sin contratiempos.", "con_during": "Durante la estancia — lo que necesitéis o algo que no funcione, es el mismo número. Estaremos encantados de ayudaros.", "p7_h": "Salida", "p7_p": "El día de la salida, dejad las llaves dentro del apartamento y cerrad la puerta al salir — y no olvidéis pulsar la flechita del panel para que la puerta quede bloqueada."}, "fr": {"title": "Bienvenue · Penthouse Estepona", "transnote": "Les versions espagnole, française et allemande sont des traductions automatiques.", "hero_eyebrow": "Estepona · Andalousie", "hero_h1": "Bienvenue.", "hero_p": "Nous sommes ravis de vous accueillir. Servez-vous une boisson fraîche et laissez la mer faire le reste. Vous trouverez ci-dessous tout le nécessaire pour votre séjour.", "lead": "Un penthouse de deux chambres surplombant la Nouvelle Milla de Oro, avec deux vastes terrasses, une piscine à débordement et une vue qui porte jusqu'au rocher de Gibraltar. Faites comme chez vous — ce petit guide réunit les informations pratiques pour votre arrivée.", "alt_pent": "Le penthouse", "alt_terrace": "La terrasse", "alt_studio": "Le coin bureau", "ess_eyebrow": "L'Essentiel", "ess_h2": "Tout ce qu'il vous faut pour arriver", "addr_title": "Adresse", "addr_line2": "Estepona, Málaga · Espagne", "addr_note": "Google Maps place parfois l'adresse un peu plus bas dans la rue — ce lien est exact :", "addr_map": "Emplacement exact sur Google Maps →", "keys_title": "Pour entrer", "keys_text": "Veuillez consulter les informations pratiques ci-dessous — clés, codes, garage : tout y est expliqué.", "keys_btn": "Informations pratiques", "wifi_title": "Wi-Fi", "wifi_net": "Réseau", "wifi_pass": "Mot de passe", "prac_eyebrow": "Le Côté Pratique", "prac_h2": "Comment tout fonctionne", "p5_h": "Arrivée, clés et garage", "p5_1": "Pour une arrivée autonome, les boîtes à clés se trouvent derrière la réception, sous l'enseigne Oceana — nous vous enverrons le code le jour de votre arrivée. Si nous vous accueillons en personne, nous vous remettrons les clés directement.", "p5_2": "La clé en plastique ouvre le garage. Passé la réception d'Oceana Views, l'entrée descend — juste avant la porte du garage, une fente à gauche reçoit la clé. <strong>Merci de vous garer uniquement sur la place 14</strong> — toutes les autres places sont la propriété privée des voisins.", "p5_3": "L'ascenseur se trouve juste à côté de la place de parking, dans l'escalier (escalera) 6, et monte directement à l'appartement — deuxième étage, 2B. Vous arrivez à pied ? La clé ordinaire ouvre la porte sur rue et l'entrée de l'immeuble.", "p6_h": "La barrière du parking", "p6_p": "Si la barrière est fermée, la petite clé du trousseau l'ouvre.", "p2_h": "Le code de la porte", "p2_1": "Nous vous enverrons le code le jour de l'arrivée. Tapez-le sur le clavier et la porte s'ouvre. En partant, appuyez sur la touche flèche — c'est elle qui verrouille la porte.", "p2_2": "De l'intérieur, appuyez sur la partie basse de la serrure pour verrouiller la porte.", "p4_h": "Climatisation", "p4_p": "Un petit bouton sur le dessus suffit — appuyez et elle démarre. Inutile de toucher aux autres réglages.", "p3_h": "Le store de la terrasse", "p3_p": "La télécommande du store se trouve près de la porte de la terrasse. Merci de la laisser toujours là, pour qu'elle reste facile à trouver.", "p1_h": "Eau potable", "p1_p": "Le robinet de la cuisine est équipé d'un filtre : tourné vers le bleu, il délivre une eau filtrée à boire. Réservez la position bleue à la boisson — pour tout le reste, utilisez les deux positions normales du robinet.", "plants_p": "Une petite faveur : nous aimons beaucoup nos plantes. Si vous remarquez que l'arrosage automatique ne fonctionne pas — ou fonctionne mal — envoyez-nous un message. Merci !", "alt_lockbox": "Les boîtes à clés derrière la réception", "alt_keypad": "Le clavier de la porte de l'appartement", "alt_lockinside": "La serrure de l'intérieur", "alt_airco": "La climatisation", "alt_remote": "La télécommande du store", "alt_tap": "Le robinet avec filtre", "rules_eyebrow": "Quelques Demandes Bienveillantes", "rules_h2": "Pour que chacun se sente chez soi", "r1_h": "Heures calmes · 22h00 – 10h00", "r1_p": "L'immeuble est aussi le foyer d'autres personnes. Entre 22h00 et 10h00, nous vous demandons aimablement de préserver le calme afin que les voisins puissent se reposer.", "r2_h": "Respect du voisinage", "r2_p": "Il s'agit d'une résidence calme et conviviale. Un peu d'attention au bruit sur les terrasses et dans les espaces communs change tout.", "r3_h": "Ni fêtes ni événements", "r3_p": "Le penthouse est réservé aux personnes indiquées sur la réservation. Les fêtes et rassemblements au-delà de votre groupe ne sont pas autorisés.", "around_eyebrow": "Aux Alentours", "around_h2": "À quelques minutes de l'essentiel", "malaga": "Aéroport de Málaga", "dist_p_0": "La vieille ville — ruelles fleuries, port de pêche en activité, la marina et l'Orchidarium.", "dist_p_1": "Puerto Banús, la Golden Mile et la vieille ville — tout le théâtre de la côte.", "dist_p_2": "Le Rocher — visible depuis la terrasse, à une agréable distance en voiture le long de la côte.", "dist_p_3": "Liaisons directes à travers l'Europe. L'autoroute à péage rend le trajet facile.", "dining_eyebrow": "Où Nous Mangeons", "dining_h2": "Une courte liste qui vaut le déplacement", "rest_tag_0": "La Laguna · Restaurant", "rest_tag_1": "La Laguna · Beach Club", "rest_tag_2": "Estepona · Gastrobar", "rest_tag_3": "Estepona · Beach Club", "rest_tag_4": "Marbella · Dinner Club", "rest_tag_5": "Golden Mile · Restaurant", "rest_tag_6": "Chiringuito", "rest_tag_7": "Beach Club", "rest_tag_8": "Marbella · Restaurant de plage", "rest_desc_0": "Cuisine méditerranéenne raffinée, vue sur la mer, poisson grillé à l'espeto et flamenco le samedi sur le sable.", "rest_desc_1": "Piscine à débordement, lits balinais, une cuisine soignée et des sets de DJ qui montent en soirée.", "rest_desc_2": "Le comptoir à tapas culte d'Estepona — petites assiettes, grands vins. Réservez une semaine à l'avance.", "rest_desc_3": "En bord de mer, parasols couleur sable, ceviche et rosé. Un long déjeuner qui mérite l'après-midi.", "rest_desc_4": "La soirée la plus spectaculaire de Marbella — cuisine méditerranéenne et spectacle live. Soignez votre tenue.", "rest_desc_5": "Un restaurant-jardin de charme — cuisine raffinée, lumière feutrée. Une valeur sûre.", "rest_desc_6": "Les pieds dans le sable, poisson grillé tout juste débarqué et albariño bien frais. L'après-midi andalou par excellence.", "rest_desc_7": "Toute la journée sur le sable — cafés, longs déjeuners, cocktails au coucher du soleil. Familier et charmant.", "rest_desc_8": "L'antenne marbellane du célèbre établissement de l'île allemande — service impeccable, poisson parfait, tables face à la mer.", "closing_eyebrow": "Profitez de chaque heure", "closing_h2": "Un horizon dont vous vous souviendrez.", "closing_p": "Merci d'avoir choisi notre maison. Nous espérons que vous repartirez bien plus reposés qu'à votre arrivée.", "footer": "Besoin de quelque chose ? WhatsApp <a href=\"https://wa.me/32491372715\">+32491372715</a> · Penthouse · Estepona, Andalousie", "addr_unit": "Escalier (escalera) 6 · Appartement 2B", "con_title": "Nous contacter", "con_before": "Avant votre arrivée — écrivez-nous sur WhatsApp quelques jours à l'avance avec votre heure d'arrivée, pour un accueil en toute simplicité.", "con_during": "Pendant votre séjour — quoi que ce soit dont vous ayez besoin ou qui ne fonctionne pas, c'est le même numéro. Nous serons heureux de vous aider.", "p7_h": "Départ", "p7_p": "Le jour du départ, laissez les clés à l'intérieur de l'appartement et fermez simplement la porte derrière vous — sans oublier d'appuyer sur la petite flèche du clavier pour que la porte se verrouille."}, "de": {"title": "Willkommen · Penthouse Estepona", "transnote": "Die spanische, französische und deutsche Fassung sind automatische Übersetzungen.", "hero_eyebrow": "Estepona · Andalusien", "hero_h1": "Willkommen.", "hero_p": "Wir freuen uns sehr, dass Sie da sind. Gönnen Sie sich etwas Kühles und überlassen Sie den Rest dem Meer. Alles, was Sie für Ihren Aufenthalt brauchen, finden Sie weiter unten.", "lead": "Ein Penthouse mit zwei Schlafzimmern oberhalb der Nueva Milla de Oro, mit zwei großzügigen Terrassen, einem Infinity-Pool und einem Blick, der bis zum Felsen von Gibraltar reicht. Fühlen Sie sich wie zu Hause — dieser kurze Leitfaden enthält die praktischen Hinweise für Ihre Ankunft.", "alt_pent": "Das Penthouse", "alt_terrace": "Die Terrasse", "alt_studio": "Die Arbeitsecke", "ess_eyebrow": "Das Wesentliche", "ess_h2": "Alles für Ihre Ankunft", "addr_title": "Adresse", "addr_line2": "Estepona, Málaga · Spanien", "addr_note": "Google Maps setzt die Adresse manchmal etwas weiter unten in der Straße — dieser Link ist exakt:", "addr_map": "Exakter Standort auf Google Maps →", "keys_title": "Der Zugang", "keys_text": "Bitte beachten Sie die praktischen Hinweise weiter unten — Schlüssel, Codes, Garage und alles Weitere sind dort erklärt.", "keys_btn": "Praktische Hinweise", "wifi_title": "WLAN", "wifi_net": "Netzwerk", "wifi_pass": "Passwort", "prac_eyebrow": "Das Praktische", "prac_h2": "Wie alles funktioniert", "p5_h": "Check-in, Schlüssel & Garage", "p5_1": "Beim Self-Check-in finden Sie die Schlüsseltresore hinter der Rezeption, unter dem Oceana-Schild — den Code senden wir Ihnen am Anreisetag. Empfangen wir Sie persönlich, übergeben wir Ihnen die Schlüssel direkt.", "p5_2": "Der Kunststoffschlüssel öffnet die Garage. Hinter der Rezeption von Oceana Views führt die Einfahrt hinab — kurz vor dem Garagentor befindet sich links ein Schlitz für den Garagenschlüssel. <strong>Bitte parken Sie ausschließlich auf Platz 14</strong> — alle anderen Plätze sind Privateigentum der Nachbarn.", "p5_3": "Der Aufzug liegt direkt neben dem Stellplatz, im Treppenhaus (Escalera) 6, und bringt Sie geradewegs zur Wohnung — zweiter Stock, 2B. Sie kommen zu Fuß? Der normale Schlüssel öffnet sowohl die Straßentür als auch den Hauseingang.", "p6_h": "Die Parkschranke", "p6_p": "Ist die Schranke geschlossen, öffnet sie der kleine Schlüssel am Schlüsselbund.", "p2_h": "Der Türcode", "p2_1": "Den Code senden wir Ihnen am Anreisetag. Tippen Sie ihn auf dem Tastenfeld ein, und die Tür öffnet sich. Beim Verlassen drücken Sie die Pfeiltaste — sie verriegelt die Tür hinter Ihnen.", "p2_2": "Von innen drücken Sie den unteren Teil des Schlosses, um die Tür zu verriegeln.", "p4_h": "Klimaanlage", "p4_p": "Ein kleiner Knopf an der Oberseite genügt — drücken, und sie startet. Die übrigen Einstellungen müssen Sie nicht verändern.", "p3_h": "Die Terrassenmarkise", "p3_p": "Die Fernbedienung der Markise liegt an der Terrassentür. Bitte lassen Sie sie immer dort, damit sie leicht zu finden ist.", "p1_h": "Trinkwasser", "p1_p": "Der Küchenhahn hat einen Filter: auf Blau gedreht, liefert er gefiltertes Trinkwasser. Bitte nutzen Sie die blaue Stellung nur zum Trinken — für alles andere die beiden normalen Stellungen des Hahns.", "plants_p": "Eine kleine Bitte: Wir lieben unsere Pflanzen sehr. Sollte die automatische Bewässerung nicht — oder nicht richtig — funktionieren, schreiben Sie uns bitte kurz. Danke!", "alt_lockbox": "Die Schlüsseltresore hinter der Rezeption", "alt_keypad": "Das Tastenfeld der Wohnungstür", "alt_lockinside": "Das Schloss von innen", "alt_airco": "Die Klimaanlage", "alt_remote": "Die Fernbedienung der Markise", "alt_tap": "Der Wasserhahn mit Filter", "rules_eyebrow": "Ein Paar Freundliche Bitten", "rules_h2": "Damit sich alle wie zu Hause fühlen", "r1_h": "Ruhezeiten · 22:00 – 10:00 Uhr", "r1_p": "Das Gebäude ist auch das Zuhause anderer. Zwischen 22:00 und 10:00 Uhr bitten wir Sie freundlich um Ruhe, damit die Nachbarn sich erholen können.", "r2_h": "Rücksicht auf die Nachbarn", "r2_p": "Dies ist eine ruhige, wohnliche Gemeinschaft. Ein wenig Achtsamkeit beim Lärm auf den Terrassen und in den Gemeinschaftsbereichen bewirkt viel.", "r3_h": "Keine Partys oder Veranstaltungen", "r3_p": "Das Penthouse ist für die in der Buchung genannten Personen bestimmt. Partys und Zusammenkünfte über Ihre Gruppe hinaus sind nicht gestattet.", "around_eyebrow": "Die Umgebung", "around_h2": "Nur Minuten von allem Wichtigen", "malaga": "Flughafen Málaga", "dist_p_0": "Die Altstadt — blumengeschmückte Gassen, ein aktiver Fischerhafen, der Yachthafen und das Orchidarium.", "dist_p_1": "Puerto Banús, die Golden Mile und die Altstadt — das ganze Schauspiel der Küste.", "dist_p_2": "Der Felsen — von der Terrasse aus sichtbar und bequem entlang der Küste zu erreichen.", "dist_p_3": "Direkte Verbindungen in ganz Europa. Die Mautautobahn macht die Fahrt unkompliziert.", "dining_eyebrow": "Wo Wir Essen", "dining_h2": "Eine kurze Liste, die die Fahrt lohnt", "rest_tag_0": "La Laguna · Restaurant", "rest_tag_1": "La Laguna · Beachclub", "rest_tag_2": "Estepona · Gastrobar", "rest_tag_3": "Estepona · Beachclub", "rest_tag_4": "Marbella · Dinnerclub", "rest_tag_5": "Golden Mile · Restaurant", "rest_tag_6": "Chiringuito", "rest_tag_7": "Beachclub", "rest_tag_8": "Marbella · Strandrestaurant", "rest_desc_0": "Raffinierte mediterrane Küche, Meerblick, Fisch vom Espeto-Grill und samstags Flamenco am Strand.", "rest_desc_1": "Infinity-Pool, balinesische Betten, eine feine Küche und DJ-Sets, die zum Abend hin Fahrt aufnehmen.", "rest_desc_2": "Esteponas Kult-Tapasbar — kleine Teller, große Weine. Reservieren Sie eine Woche im Voraus.", "rest_desc_3": "Direkt am Strand, sandfarbene Sonnenschirme, Ceviche und Rosé. Ein langes Mittagessen, das den Nachmittag wert ist.", "rest_desc_4": "Marbellas spektakulärster Abend — mediterrane Küche und Live-Show. Kleiden Sie sich entsprechend.", "rest_desc_5": "Ein charmantes Gartenrestaurant — feine Küche, gedämpftes Licht. Eine immer gute Wahl.", "rest_desc_6": "Die Füße im Sand, gegrillter Fisch direkt vom Boot und eiskalter Albariño. Der klassische andalusische Nachmittag.", "rest_desc_7": "Den ganzen Tag am Strand — Kaffee, lange Mittagessen, Sonnenuntergangscocktails. Vertraut und schön.", "rest_desc_8": "Der Marbella-Ableger des bekannten Lokals von der deutschen Insel — tadelloser Service, perfekter Fisch, Tische direkt am Meer.", "closing_eyebrow": "Genießen Sie jede Stunde", "closing_h2": "Ein Horizont, den Sie nicht vergessen.", "closing_p": "Danke, dass Sie unser Zuhause gewählt haben. Wir hoffen, Sie reisen weit erholter ab, als Sie angekommen sind.", "footer": "Brauchen Sie etwas? WhatsApp <a href=\"https://wa.me/32491372715\">+32491372715</a> · Penthouse · Estepona, Andalusien", "addr_unit": "Treppenhaus (Escalera) 6 · Wohnung 2B", "con_title": "So erreichen Sie uns", "con_before": "Vor der Anreise — schreiben Sie uns einige Tage vorher über WhatsApp Ihre Ankunftszeit, damit wir Sie reibungslos empfangen können.", "con_during": "Während des Aufenthalts — was immer Sie brauchen oder was nicht funktioniert: dieselbe Nummer. Wir helfen Ihnen gern.", "p7_h": "Check-out", "p7_p": "Am Abreisetag lassen Sie die Schlüssel einfach in der Wohnung und ziehen die Tür hinter sich zu — und vergessen Sie nicht, die kleine Pfeiltaste auf dem Tastenfeld zu drücken, damit die Tür verriegelt."}};
+  const LANGS = ["en","es","fr","de"];
+  function applyLang(code){
+    const t = I18N[code] || I18N.en;
+    document.documentElement.lang = code;
+    if(t.title) document.title = t.title;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n"); if(t[k]!=null) el.textContent = t[k];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-html"); if(t[k]!=null) el.innerHTML = t[k];
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-alt"); if(t[k]!=null) el.setAttribute("alt", t[k]);
+    });
+    document.querySelectorAll(".langnav button").forEach(function(b){
+      b.classList.toggle("active", b.dataset.lang===code);
+    });
+    try{ localStorage.setItem("penthouse_lang", code); }catch(e){}
+  }
+  function initLang(){
+    var code = "en";
+    try{ var s = localStorage.getItem("penthouse_lang"); if(s && LANGS.indexOf(s)>-1) code = s; }catch(e){}
+    if(code==="en"){ var b=(navigator.language||"").slice(0,2).toLowerCase(); if(LANGS.indexOf(b)>-1) code=b; }
+    document.querySelectorAll(".langnav button").forEach(function(b){
+      b.addEventListener("click", function(){ applyLang(b.dataset.lang); });
+    });
+    applyLang(code);
+  }
+  document.addEventListener("DOMContentLoaded", initLang);
+</script>
+</body>
+</html>
