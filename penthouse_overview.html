@@ -43,7 +43,8 @@
   /* bracket-framed photo */
   .bracket{position:relative;background:var(--cream-deep);padding:20px}
   .bracket img{width:100%;height:100%;object-fit:cover;display:block}
-  .bracket iframe{width:100%;aspect-ratio:4/3;border:0;display:block}
+  .vidcrop{position:relative;aspect-ratio:16/9;overflow:hidden}
+  .vidcrop iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100.5%;height:114%;border:0}
   .bracket::before,.bracket::after,.bracket i::before,.bracket i::after{content:"";position:absolute;width:26px;height:26px;border-color:var(--terra);border-style:solid}
   .bracket::before{top:8px;left:8px;border-width:2px 0 0 2px}
   .bracket::after{bottom:8px;right:8px;border-width:0 2px 2px 0}
@@ -144,7 +145,7 @@
       <h1 class="h-xl" data-i18n-html="intro_h">Un ático <em>sobre</em> el Mediterráneo.</h1>
       <p class="lead" data-i18n="intro_p">Donde Andalucía se abre al mar. Dos terrazas, una piscina infinita, y una vista larga que alcanza hasta Gibraltar.</p>
     </div>
-    <div class="bracket"><i></i><iframe src="https://drive.google.com/file/d/1gH5icyR3K80alKLty-E2LpXH1U9gbN6I/preview" allow="autoplay; fullscreen" allowfullscreen title="Penthouse · Estepona"></iframe></div>
+    <div class="bracket"><i></i><div class="vidcrop"><iframe src="https://drive.google.com/file/d/1gH5icyR3K80alKLty-E2LpXH1U9gbN6I/preview" allow="autoplay; fullscreen" allowfullscreen title="Penthouse · Estepona"></iframe></div></div>
   </section>
 
   <section class="wrap split" id="residencia" style="padding-top:0">
